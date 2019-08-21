@@ -1,0 +1,144 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+ <input type="hidden" name="PMId" [value]="service.formData.PMId">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="CardOwnerName.valid" [class.red-icon]="CardOwnerName.invalid && CardOwnerName.touched"></i>
+        </div>
+      </div>
+      <input name="CardOwnerName" #CardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName" class="form-control"
+        placeholder="Card Owner Name" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-credit-card"  [class.green-icon]="CardNumber.valid" [class.red-icon]="CardNumber.invalid && CardNumber.touched"></i>
+        </div>
+      </div>
+      <input name="CardNumber" #CardNumber="ngModel" [(ngModel)]="service.formData.CardNumber" 
+      class="form-control" placeholder="16 Digit Card Number" required maxlength="16" minlength="16">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-7">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-calendar-alt"  [class.green-icon]="ExpirationDate.valid" [class.red-icon]="ExpirationDate.invalid && ExpirationDate.touched"></i>
+          </div>
+        </div>
+        <input name="ExpirationDate" #ExpirationDate="ngModel" [(ngModel)]="service.formData.ExpirationDate" class="form-control"
+          placeholder="MM/YY" required maxlength="5" minlength="5">
+      </div>
+    </div>
+    <div class="form-group col-md-5">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-key"  [class.green-icon]="CVV.valid" [class.red-icon]="CVV.invalid && CVV.touched"></i>
+          </div>
+        </div>
+        <input type="password" name="CVV" #CVV="ngModel" [(ngModel)]="service.formData.CVV" class="form-control" placeholder="CVV"
+        required  maxlength="3" minlength="3">
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Submit</button>
+  </div> -->
+
+  <!-- <div class="panel panel-default">
+      <div class="panel-heading">New product</div>
+      <div class="panel-body">
+        <form ng-submit="add()" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Item</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  [(ngModel)]="item"/>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  [(ngModel)]="department" />
+            </div>
+          </div>{{Price}}
+          
+          <div clas="form-group">
+            <label class="col-sm-2 control-label">Quantity</label>
+            <div class="col-sm-10">
+              <input type="range" min="1" max="500" [(ngModel)]="quantity" /> {{quantity}}
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+               <input type="submit" class="btn btn-default" value="Insert product" />
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div> -->
+   
+    <!-- <table class="table" ng-show="cartData.length > 0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th colspan="2">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in cartData">
+          <td>{{item.name}}</td>
+          <td>{{item.price | currency}}</td>
+          <td>{{item.quantity}}</td>
+          <td>
+            <button ng-click="remove($index)" class="btn btn-default">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+</form>
+
+<div clas="form-group">
+    <label class="control-label">Coffee</label>
+    <select id="department" name="department" [(ngModel)]="price" class="form-control">
+        <option *ngFor="let dept of service.coffeeList" (select)="onSelect()" [value]="dept.Price">
+          {{dept.Name}} 
+          <option>
+      </select>
+
+  </div>
+  <div class="form-group">
+
+      <label class="control-label">Price</label>
+      <div>
+          <input type="text" class="form-control"  [(ngModel)]="price"/>
+  
+      </div>
+    </div>
+    <div class="form-group">
+
+        <label class="control-label">Quantity</label>
+        <div>
+            <input type="text" class="form-control"  [(ngModel)]="quantity"/>
+    
+        </div>
+      </div>
+    <div class="form-group">
+
+        <div>
+
+            <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i> Submit</button>
+
+        </div>
+      </div>
+
+

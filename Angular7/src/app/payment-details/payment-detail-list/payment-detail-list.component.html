@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+    <th>Customer</th>
+    <th>Time</th>
+    <th>PointsEarned</th>
+    <th>TotalPrice</th>
+    <th>TotalQuantity</th>
+  </thead>
+  
+  <tr *ngFor="let pd of service.list">
+    <td >{{pd.CustomerId}}</td>
+    <td >{{pd.TimeStamp}}</td>
+    <td >{{pd.PointEarned}}</td>
+    <td >{{pd.TotalPrice}}</td>
+    <td >{{pd.TotalQuantity}}</td>
+    <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+    </td>
+  </tr>
+</table>
+

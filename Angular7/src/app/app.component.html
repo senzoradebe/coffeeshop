@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+      
+      <div >
+        <ul class="nav nav-tabs">
+          <li role="presentation"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="">Home</a>
+          </li>
+          <li role="presentation"
+              routerLinkActive="active">
+            <a routerLink="order-item">Orders</a>
+          </li>
+          <li role="presentation"
+              routerLinkActive="active">
+            <a [routerLink]="['customer-points']">View Points</a>
+          </li>
+          <li role="presentation"
+              routerLinkActive="active">
+            <a routerLink="customer-add">Add Customer</a>
+          </li>
+          <li role="presentation"
+              routerLinkActive="active">
+            <a [routerLink]="['order-item']">Add Coffee</a>
+          </li>              
+        </ul>
+      </div>
+    </div>
+
+
+        <router-outlet></router-outlet>
+
+  </div>
+  
+
+<!-- <div class="container">
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+      <div >
+        <ul class="nav nav-tabs">
+          <li role="presentation"
+  >
+            <a >Home</a>
+          </li>
+          <li role="presentation"
+  >
+            <a>Servers</a>
+          </li>
+          <li role="presentation">
+         <a>Users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div >
+         <router-outlet></router-outlet> 
+      </div>
+    </div>
+    <app-payment-details></app-payment-details>
+  </div>
+   -->

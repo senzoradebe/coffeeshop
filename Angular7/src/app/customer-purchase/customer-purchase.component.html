@@ -1,0 +1,90 @@
+<p>
+  customer-purchase works!
+</p>
+<div class="row">
+<div class="col-md-5" >
+
+  
+    <div class="form-group">
+        <label class="control-label">Customer</label>
+        <select 
+        (change)="onCustomerChange($event)" 
+        name="customer" #customer="ngModel" 
+        [(ngModel)]="item.CustomerId" 
+        class="form-control">
+          <option *ngFor="let dept of customerService.customerList"[value]="dept.Id">
+              {{dept.Name}} 
+              <option>
+          </select>
+    </div>
+<div class="form-group">
+    <label class="control-label">Coffee</label>
+    <select 
+    (change)="onChange($event)" 
+    name="coffee" #coffee="ngModel" 
+    [(ngModel)]="item.Id" 
+    class="form-control">
+      <option *ngFor="let dept of coffeeService.coffeeList"[value]="dept.Id">
+          {{dept.Name}} 
+          <option>
+      </select>
+</div>
+
+  <div class="form-group" >
+    
+      <label class="control-label">Price</label>
+      <div>
+          <input type="text" class="form-control"  name="item.Price" #coffee="ngModel" 
+          [(ngModel)]="item.Price"/>
+  
+      </div>
+    </div>
+ 
+    <div class="form-group">
+      
+        <label class="control-label">Quantity</label>
+        <div>
+            <input type="text" class="form-control"  [(ngModel)]="item.Quantity"/>
+    
+        </div>
+       
+      </div>
+    <div class="form-group">
+ 
+        <div>
+            <button class="btn btn-success btn-lg btn-block" (click)="addToBasket()"><i class="fas fa-database"></i> Add to Basket</button>
+        </div>
+      </div>
+ 
+
+
+</div>
+
+<div class="col-md-5">
+<table class="table table-hover">
+  <thead>
+    <th>Customer</th>
+    <th>Coffee</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </thead>
+    <tr *ngFor="let pd of basketItemViewList">
+        <td (click)="populateForm(pd)">{{pd.CustomerName}}</td>
+      <td (click)="populateForm(pd)">{{pd.CoffeeName}}</td>
+
+      <td (click)="populateForm(pd)">{{pd.Quantity}}</td>
+      <td (click)="populateForm(pd)">{{pd.Price}}</td>
+      <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd)"></i>
+      </td>
+    </tr>
+  </table>
+  <div class="form-group">
+ 
+      <div>
+          <button class="btn btn-success btn-lg btn-block" (click)="submitBasket()" type="submit"><i class="fas fa-database"></i> Checkout</button>      </div>
+    </div>
+    Total : {{ totalPrice }}
+
+</div>
+</div>
